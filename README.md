@@ -49,19 +49,25 @@ sqlite3 library.db < ddl.sql
 ## Project Structure
 
 ```
-library_management/
-├── main.py           # Application entry point
-├── session.py        # User session management
-├── first_page.py     # Welcome page
-├── login_page.py     # Login interface
-├── register_page.py  # Registration interface
-├── homePage.py       # User dashboard
-├── tap_page.py       # Tab container
-├── books.py          # Book management
-├── borrowing.py      # Borrowing system
-├── fines.py          # Fine management
-├── ddl.sql          # Database schema and tables creation
-└── ERD and Schema.pdf # Database design documentation
+Biblioteca/
+├── database/
+│   ├── ddl.sql
+│   └── initial.sql
+├── source/
+│   ├── .idea
+│   ├── books.py
+│   ├── borrowing.py
+│   ├── fines.py
+│   ├── first_page.py
+│   ├── homePage.py
+│   ├── login_page.py
+│   ├── main.py
+│   ├── menofia.jpeg
+│   ├── register_page.py
+│   ├── session.py
+│   └── tap_page.py
+├── ERD and Schema.pdf
+└── README.md
 ```
 
 ## Running the Application
