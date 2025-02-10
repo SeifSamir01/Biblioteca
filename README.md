@@ -1,4 +1,4 @@
-# Library Management System
+# Biblioteca
 
 A comprehensive library management system built with Python, PyQt5, and SQLite3. The system provides a user-friendly interface for library users to manage book borrowing, returns, and fines.
 
