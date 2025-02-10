@@ -1,0 +1,46 @@
+CREATE TABLE IF NOT EXISTS User(
+    nat_id VARCHAR(14) PRIMARY KEY CHECK (LENGTH(nat_id) = 14),
+    email VARCHAR(100) UNIQUE NOT NULL CHECK(email LIKE '%@gmail.com'),
+    password VARCHAR(20) NOT NULL CHECK(LENGTH(password) >= 6),
+    user_name VARCHAR(20) UNIQUE NOT NULL,
+    Fname VARCHAR(20) NOT NULL,
+    Lname VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Books(
+    book_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title VARCHAR(20) UNIQUE NOT NULL,
+    author VARCHAR(20) NOT NULL,
+    quantity NUMBER(5) NOT NULL
+);
+
+
+CREATE TABLE IF NOT EXISTS borrows_record(
+    book_id NUMBER(10) NOT NULL,
+    nat_id VARCHAR(14) NOT NULL,
+    start_date DATE NOT NULL,
+    due_date DATE NOT NULL,
+    status VARCHAR(10) NOT NULL DEFAULT "borrowed",
+    PRIMARY KEY(nat_id,book_id),
+    FOREIGN KEY(nat_id) REFERENCES User(nat_id)ON DELETE CASCADE,
+    FOREIGN KEY(book_id) REFERENCES Books(book_id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS Fines(
+    fine_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nat_id VARCHAR(14) NOT NULL,
+    amount VARCHAR(20),
+    paid VARCHAR(10) NOT NULL DEFAULT "false",
+    FOREIGN KEY(nat_id) REFERENCES User(nat_id) ON DELETE CASCADE
+);
+
+
+CREATE TABLE IF NOT EXISTS Ratings(
+    rate_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    rating number(1,2) NOT NULL CHECK(rating BETWEEN 1 AND 5),
+    book_id NUMBER(10) NOT NULL ,
+    nat_id VARCHAR(14) NOT NULL,
+    FOREIGN KEY(nat_id) REFERENCES User(nat_id) ON DELETE CASCADE,
+    FOREIGN KEY(book_id) REFERENCES Books(book_id) ON DELETE CASCADE
+);
+
