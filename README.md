@@ -28,7 +28,7 @@ A comprehensive library management system built with Python, PyQt5, and SQLite3.
 
 ## Technology Stack
 
-- Python 3.x
+- Python 3.12.8
 - PyQt5 for GUI
 - SQLite3 for database
 - Object-Oriented Programming paradigm
@@ -79,7 +79,7 @@ python main.py
 
 ## Usage Requirements
 
-- Python 3.x
+- Python 3.6+
 - PyQt5
 - SQLite3
 - 1200x800 minimum screen resolution
